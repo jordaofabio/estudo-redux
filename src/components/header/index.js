@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Cart } from './styles';
 import logo from '../../assets/images/logo.png';
 import { MdShoppingCart } from 'react-icons/md';
 
-export default function Header() {
+function Header({ cartItens }) {
   return (
     <Container>
       <Link to="/">
@@ -14,10 +15,17 @@ export default function Header() {
       <Cart to="/cart">
         <div>
           <strong>Meu carrinho</strong>
-          <span>2 itens</span>
+          <span>
+            {cartItens > 1 ? `${cartItens} itens` : `${cartItens} item`}
+          </span>
         </div>
         <MdShoppingCart size={36} color="#555" />
       </Cart>
     </Container>
   );
 }
+
+export default connect((state) => ({
+  cart: state.cart,
+  cartItens: state.cart.length,
+}))(Header);

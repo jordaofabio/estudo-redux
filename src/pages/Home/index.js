@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { ProductList } from './styles';
 import { FaPlus } from 'react-icons/fa';
 import api from '../../services/api';
 import formatPrice from '../../util/format';
-export default class Home extends Component {
+class Home extends Component {
   state = {
     products: [],
+  };
+
+  handleAddProduct = (product) => {
+    const { dispatch } = this.props;
+
+    dispatch({
+      type: 'ADD_TO_CART',
+      product,
+    });
   };
 
   async componentDidMount() {
@@ -29,7 +39,10 @@ export default class Home extends Component {
             <strong>{product.name}</strong>
             <span>{product.formattedPrice}</span>
 
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => this.handleAddProduct(product)}
+            >
               <div>
                 <FaPlus size={16} color={'#FFF'} /> 2
               </div>
@@ -42,3 +55,7 @@ export default class Home extends Component {
     );
   }
 }
+
+export default connect((state) => ({
+  cart: state.cart,
+}))(Home);
