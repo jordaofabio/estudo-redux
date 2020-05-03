@@ -11,7 +11,7 @@ import {
 
 import imagemIlustrativa from '../../assets/images/monitor-ilustrativo.jpg';
 
-function Cart() {
+function Cart({ cart }) {
   return (
     <Container>
       <ProductTable>
@@ -25,36 +25,36 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map((product) => {
-            <tr>
+          {cart.map((product) => (
+            <tr key={product.id}>
               <td>
-                <img src={imagemIlustrativa} alt="Produto ilustrativo" />
+                <img src={product.image} alt={product.name} />
               </td>
               <td>
-                <strong>Produto Ilustrativo</strong>
-                <span>R$ 5.199,90</span>
+                <strong>{product.name}</strong>
+                <span>{product.formattedPrice}</span>
               </td>
               <td>
                 <div>
                   <button type="button">
                     <MdRemoveCircleOutline size={20} />
                   </button>
-                  <input type="number" readOnly value={1} />
+                  <input type="number" readOnly value={product.amount} />
                   <button type="button">
                     <MdAddCircleOutline size={20} />
                   </button>
                 </div>
               </td>
               <td>
-                <strong>R$ 1399,80</strong>
+                <strong>{product.formattedPrice}</strong>
               </td>
               <td>
                 <button type="button">
                   <MdDelete size={20} />
                 </button>
               </td>
-            </tr>;
-          })}
+            </tr>
+          ))}
         </tbody>
       </ProductTable>
 
@@ -62,7 +62,7 @@ function Cart() {
         <button type="button">Finalizar pedido</button>
         <Total>
           <span>TOTAL</span>
-          <strong>R$ 1399,80</strong>
+          <strong>{formatPrice('5000')}</strong>
         </Total>
       </footer>
     </Container>
