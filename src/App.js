@@ -5,6 +5,8 @@ import GlobalStyle from './styles/globals';
 import Header from './components/header';
 import { Provider } from 'react-redux';
 
+import './config/ReactotronConfig';
+
 import store from './store';
 
 function App() {
