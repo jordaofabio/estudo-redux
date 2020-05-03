@@ -1,89 +1,44 @@
-import React from 'react';
-import imagemIlustrativa from '../../assets/images/monitor-ilustrativo.jpg';
+import React, { Component } from 'react';
 import { ProductList } from './styles';
 import { FaPlus } from 'react-icons/fa';
+import api from '../../services/api';
+import formatPrice from '../../util/format';
+export default class Home extends Component {
+  state = {
+    products: [],
+  };
 
-export default function Main() {
-  return (
-    <ProductList>
-      <li>
-        <img src={imagemIlustrativa} alt="Produto Ilustrativo" />
-        <strong>Produto Ilustrativo</strong>
-        <span>R$ 5.199,90</span>
+  async componentDidMount() {
+    const response = await api.get('products');
 
-        <button type="button">
-          <div>
-            <FaPlus size={16} color={'#FFF'} /> 2
-          </div>
+    const data = response.data.map((product) => ({
+      ...product,
+      formattedPrice: formatPrice(product.price),
+    }));
+    this.setState({ products: data });
+  }
 
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img src={imagemIlustrativa} alt="Produto Ilustrativo" />
-        <strong>Produto Ilustrativo</strong>
-        <span>R$ 5.199,90</span>
-        <button type="button">
-          <div>
-            <FaPlus size={16} color={'#FFF'} /> 2
-          </div>
+  render() {
+    const { products } = this.state;
 
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img src={imagemIlustrativa} alt="Produto Ilustrativo" />
-        <strong>Produto Ilustrativo</strong>
-        <span>R$ 5.199,90</span>
+    return (
+      <ProductList>
+        {products.map((product) => (
+          <li key={product.id}>
+            <img src={product.image} alt={product.name} />
+            <strong>{product.name}</strong>
+            <span>{product.formattedPrice}</span>
 
-        <button type="button">
-          <div>
-            <FaPlus size={16} color={'#FFF'} /> 2
-          </div>
+            <button type="button">
+              <div>
+                <FaPlus size={16} color={'#FFF'} /> 2
+              </div>
 
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img src={imagemIlustrativa} alt="Produto Ilustrativo" />
-        <strong>Produto Ilustrativo</strong>
-        <span>R$ 5.199,90</span>
-
-        <button type="button">
-          <div>
-            <FaPlus size={16} color={'#FFF'} /> 2
-          </div>
-
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-      <li>
-        <img src={imagemIlustrativa} alt="Produto Ilustrativo" />
-        <strong>Produto Ilustrativo</strong>
-        <span>R$ 5.199,90</span>
-
-        <button type="button">
-          <div>
-            <FaPlus size={16} color={'#FFF'} /> 2
-          </div>
-
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-
-      <li>
-        <img src={imagemIlustrativa} alt="Produto Ilustrativo" />
-        <strong>Produto Ilustrativo</strong>
-        <span>R$ 5.199,90</span>
-
-        <button type="button">
-          <div>
-            <FaPlus size={16} color={'#FFF'} /> 2
-          </div>
-
-          <span>Adicionar ao carrinho</span>
-        </button>
-      </li>
-    </ProductList>
-  );
+              <span>Adicionar ao carrinho</span>
+            </button>
+          </li>
+        ))}
+      </ProductList>
+    );
+  }
 }

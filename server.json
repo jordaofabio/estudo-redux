@@ -1,0 +1,66 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 3
+    },
+    {
+      "id": 2,
+      "amount": 5
+    },
+    {
+      "id": 3,
+      "amount": 2
+    },
+    {
+      "id": 4,
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "amount": 5
+    },
+    {
+      "id": 6,
+      "amount": 10
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "SSD Kingston A400, 480GB, SATA",
+      "price": 800.9,
+      "image": "http://localhost:3000/img/85198_index_gg.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Headset Gamer HyperX Cloud Revolver S 7.1 Dolby Digital - HX-HSCRS-GM/NA",
+      "price": 1500.9,
+      "image": "http://localhost:3000/img/86441_1518116790_index_gg.jpg"
+    },
+    {
+      "id": 3,
+      "name": "onsole Microsoft Xbox One",
+      "price": 2199.9,
+      "image": "http://localhost:3000/img/console-microsoft-xbox-one-s-1tb-branco-pes-2020-234-01120_1574172777_gg.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Roteador Gamer Wireless ASUS RT-AC68U",
+      "price": 1390.9,
+      "image": "http://localhost:3000/img/roteador-gamer-wireless-asus-rt-ac68u-dual-band-ac1900mbps-aimesh-3-antenas-usb-3-0-dualcore-rede-gigabit-airadar_1583873853_gg.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Placa-Mãe Asus Prime B450M Gaming/BR, AMD AM4, mATX, DDR4",
+      "price": 919.9,
+      "image": "http://localhost:3000/img/placa-mae-asus-para-amd-am4-matx-prime-b450m-gaming-br-ddr4__1545143134_gg.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Monitor Gamer Acer LED 23.6´ Widescreen, Full HD",
+      "price": 179.9,
+      "image": "http://localhost:3000/img/101340_1554920807_index_gg.jpg"
+    }
+  ]
+}

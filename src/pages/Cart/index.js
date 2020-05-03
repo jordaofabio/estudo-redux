@@ -1,5 +1,7 @@
 import React from 'react';
 import { Container, ProductTable, Total } from './styles';
+import formatPrice from '../../util/format';
+
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
