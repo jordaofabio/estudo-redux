@@ -9,7 +9,6 @@
   "breadcrumbs.enabled": true,
   "editor.fontLigatures": true,
   "editor.rulers": [
-    80,
     120
   ],
   "editor.renderLineHighlight": "gutter",
