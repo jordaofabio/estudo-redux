@@ -12,9 +12,9 @@ class Home extends Component {
     products: [],
   };
 
-  handleAddProduct = (product) => {
-    const { addToCart } = this.props;
-    addToCart(product);
+  handleAddProduct = (id) => {
+    const { addToCartRequest } = this.props;
+    addToCartRequest(id);
   };
 
   async componentDidMount() {
@@ -41,7 +41,7 @@ class Home extends Component {
 
             <button
               type="button"
-              onClick={() => this.handleAddProduct(product)}
+              onClick={() => this.handleAddProduct(product.id)}
             >
               <div>
                 <FaPlus size={16} color={'#FFF'} /> {amount[product.id]}
