@@ -15,11 +15,15 @@ function Header({ cartItens }) {
       <Cart to="/cart">
         <div>
           <strong>Meu carrinho</strong>
-          <span>
-            {cartItens > 1 ? `${cartItens} itens` : `${cartItens} item`}
-          </span>
+          {cartItens > 0 && (
+            <span>
+              {cartItens > 1 ? `${cartItens} produtos` : `${cartItens} produto`}
+            </span>
+          )}
+
+          {cartItens === 0 && <span>Vazio</span>}
         </div>
-        <MdShoppingCart size={36} color="#555" />
+        <MdShoppingCart size={36} color="#707070" />
       </Cart>
     </Container>
   );

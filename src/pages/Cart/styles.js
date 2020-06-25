@@ -13,7 +13,7 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-      background: #e77f38;
+      background: #fe0000;
       color: #fff;
       border-radius: 3px;
       border: 0;
@@ -24,7 +24,7 @@ export const Container = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.08, '#e77f38')};
+        background: ${darken(0.08, '#FE0000')};
       }
     }
   }
@@ -66,16 +66,30 @@ export const ProductTable = styled.table`
 
     input {
       border: 1px solid #ddd;
-      border-radius: 4px;
+      height: 30px;
       width: 50px;
+      padding-left: 10px;
       text-align: center;
     }
   }
 
   button {
-    background: none;
-    border: 0;
-    padding: 6px;
+    // background: none;
+    // border: 0;
+    padding: 0 15px;
+    height: 30px;
+  }
+
+  .btLeft {
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+  }
+
+  .btRight {
+    border: 1px solid #ddd;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
   }
 `;
 

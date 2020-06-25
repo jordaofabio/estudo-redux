@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 export const ProductList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   list-style: none;
 
@@ -32,7 +32,7 @@ export const ProductList = styled.ul`
     }
 
     button {
-      background: #e77f38;
+      background: #fe0000;
       color: #fff;
       border-radius: 3px;
       border: 0;
@@ -43,7 +43,7 @@ export const ProductList = styled.ul`
       align-items: center;
 
       &:hover {
-        background: ${darken(0.08, '#e77f38')};
+        background: ${darken(0.08, '#FE0000')};
       }
 
       div {

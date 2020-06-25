@@ -24,11 +24,11 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
       <ProductTable>
         <thead>
           <tr>
+            <th>Produtos</th>
             <th />
-            <th>Produto</th>
-            <th>Qtd.</th>
+            <th>Quantidade</th>
             <th>Subtotal</th>
-            <th />
+            {/* <th /> */}
           </tr>
         </thead>
         <tbody>
@@ -43,32 +43,38 @@ function Cart({ cart, total, removeFromCart, updateAmountRequest }) {
               </td>
               <td>
                 <div>
-                  <button type="button">
-                    <MdRemoveCircleOutline
+                  <button
+                    type="button"
+                    className="btLeft"
+                    onClick={() => decrement(product)}
+                  >
+                    -
+                    {/* <MdRemoveCircleOutline
                       size={20}
                       onClick={() => decrement(product)}
-                    />
+                    /> */}
                   </button>
                   <input type="number" readOnly value={product.amount} />
-                  <button type="button">
-                    <MdAddCircleOutline
-                      size={20}
-                      onClick={() => increment(product)}
-                    />
+                  <button
+                    type="button"
+                    className="btRight"
+                    onClick={() => increment(product)}
+                  >
+                    +
                   </button>
                 </div>
               </td>
               <td>
                 <strong>{product.subtotal}</strong>
               </td>
-              <td>
+              {/* <td>
                 <button
                   type="button"
                   onClick={() => removeFromCart(product.id)}
                 >
                   <MdDelete size={20} />
                 </button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
