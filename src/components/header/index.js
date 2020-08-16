@@ -1,11 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Container, Cart } from './styles';
 import logo from '../../assets/images/logo.png';
 import { MdShoppingCart } from 'react-icons/md';
 
-function Header({ cartItens }) {
+export default function Header() {
+  const cartItens = useSelector((state) => state.cart.length);
+
   return (
     <Container>
       <Link to="/">
@@ -28,8 +30,3 @@ function Header({ cartItens }) {
     </Container>
   );
 }
-
-export default connect((state) => ({
-  cart: state.cart,
-  cartItens: state.cart.length,
-}))(Header);
