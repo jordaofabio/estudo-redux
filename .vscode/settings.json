@@ -11,6 +11,7 @@
   "editor.rulers": [
     120
   ],
+  "explorer.compactFolders": false,
   "editor.renderLineHighlight": "gutter",
   "editor.tabSize": 2,
   "editor.parameterHints.enabled": false,
